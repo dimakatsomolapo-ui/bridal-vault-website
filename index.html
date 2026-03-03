@@ -27,7 +27,17 @@ background:#0c0c0c;
 color:#f5f5f5;
 overflow-x:hidden;
 }
+/* SCROLL FADE ANIMATION */
+.fade-section{
+opacity:0;
+transform:translateY(60px);
+transition:all 1.2s cubic-bezier(.2,.8,.2,1);
+}
 
+.fade-section.visible{
+opacity:1;
+transform:translateY(0);
+}
 /* HEADER */
 header{
 position:absolute;
@@ -157,7 +167,15 @@ margin-top:120px;
 width:100%;
 height:95vh;
 object-fit:cover;
-margin-bottom:40px;
+margin-bottom:60px;
+opacity:0;
+transform:scale(1.08);
+transition:all 1.5s cubic-bezier(.2,.8,.2,1);
+}
+
+.gallery img.visible{
+opacity:1;
+transform:scale(1);
 }
 
 /* REVIEWS */
@@ -220,8 +238,8 @@ color:#000;
 </div>
 </section>
 
-<section class="section" id="about">
-<h2>The Atelier</h2>
+<section class="section fade-section" id="about">
+  <h2>The Atelier</h2>
 <p class="about-text">
 Bridal Vault is a couture bridal house devoted to precision, restraint and elevated craftsmanship. Each gown is designed as a statement of refinement — sculpted silhouettes, architectural structure and timeless detail.
 </p>
@@ -236,15 +254,15 @@ Bridal Vault is a couture bridal house devoted to precision, restraint and eleva
 <img src="dress4.jpeg">
 </section>
 
-<section class="section">
-<h2>Client Words</h2>
+<section class="section fade-section">
+  <h2>Client Words</h2>
 <p class="review">
 “An experience that felt personal, intentional and extraordinary. My gown was not just a dress — it was art.”
 </p>
 </section>
 
-<section class="section" id="contact">
-<h2>Contact</h2>
+<section class="section fade-section" id="contact">
+  <h2>Contact</h2>
 <p>066 224 3626</p>
 <p>bridalvault@gmail.com</p>
 <p>
@@ -258,6 +276,22 @@ Bridal Vault is a couture bridal house devoted to precision, restraint and eleva
 </footer>
 
 <a href="https://wa.me/27662243626" class="whatsapp">WhatsApp</a>
+<script>
+const observer = new IntersectionObserver(entries => {
+entries.forEach(entry => {
+if(entry.isIntersecting){
+entry.target.classList.add("visible");
+}
+});
+}, { threshold: 0.2 });
 
+document.querySelectorAll(".fade-section").forEach(section => {
+observer.observe(section);
+});
+
+document.querySelectorAll(".gallery img").forEach(img => {
+observer.observe(img);
+});
+</script>
 </body>
 </html>
