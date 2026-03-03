@@ -30,22 +30,21 @@ line-height:1.8;
 overflow-x:hidden;
 }
 
-/* LUXURY LOGO WATERMARK */
+/* CLEAN LOGO WATERMARK */
 body::before{
 content:"";
 position:fixed;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
-width:70vw;
-height:70vw;
-max-width:800px;
-max-height:800px;
+width:60vw;
+height:60vw;
+max-width:750px;
+max-height:750px;
 background:url('BV.jpeg') center/contain no-repeat;
-opacity:0.035;
-filter:grayscale(100%) brightness(1.05) contrast(0.95);
+opacity:0.05;
 pointer-events:none;
-z-index:0;
+z-index:-1;
 }
 
 /* Soft blend fade */
