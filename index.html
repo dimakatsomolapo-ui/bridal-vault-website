@@ -30,37 +30,38 @@ line-height:1.8;
 overflow-x:hidden;
 }
 
-/* ENHANCED LOGO WATERMARK */
+/* LUXURY LOGO WATERMARK */
 body::before{
-content:"BRIDAL VAULT";
+content:"";
 position:fixed;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
-width:65vw;
-height:65vw;
-max-width:750px;
-max-height:750px;
+width:70vw;
+height:70vw;
+max-width:800px;
+max-height:800px;
 background:url('BV.jpeg') center/contain no-repeat;
-opacity:0.045;
-filter:grayscale(100%) brightness(1.1) contrast(0.9);
+opacity:0.035;
+filter:grayscale(100%) brightness(1.05) contrast(0.95);
 pointer-events:none;
 z-index:0;
 }
-body::before{
-content:"BRIDAL VAULT";
+
+/* Soft blend fade */
+body::after{
+content:"";
 position:fixed;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
-font-family:'Playfair Display',serif;
-font-size:12vw;
-letter-spacing:1vw;
-color:rgba(198,167,94,0.035);
+width:90vw;
+height:90vw;
+max-width:1000px;
+max-height:1000px;
+background:radial-gradient(circle, rgba(248,245,240,0.15) 40%, rgba(248,245,240,0.95) 85%);
 pointer-events:none;
-z-index:0;
-max-width:90%;
-text-align:center;
+z-index:1;
 }
 /* Soft radial fade so watermark blends naturally */
 body::after{
