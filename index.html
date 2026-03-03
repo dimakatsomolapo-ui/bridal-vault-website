@@ -1,26 +1,54 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bridal Vault | Couture Bridal Atelier</title>
+<title>Bridal Vault | Custom Wedding Dresses</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-<meta property="og:title" content="Bridal Vault | Couture Bridal Atelier">
-<meta property="og:description" content="Paris-inspired bridal couture. Bespoke gowns crafted with precision and restraint.">
+<!-- Open Graph Preview -->
+<meta property="og:title" content="Bridal Vault | Custom Wedding Dresses">
+<meta property="og:description" content="Luxury bridal designs crafted with elegance and refinement.">
 <meta property="og:image" content="https://bridal-vault.netlify.app/preview.png">
 <meta property="og:url" content="https://bridal-vault.netlify.app/">
 <meta property="og:type" content="website">
 
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bridal Vault | Custom Wedding Dresses">
+<meta name="twitter:description" content="Luxury bridal designs crafted with elegance and refinement.">
+<meta name="twitter:image" content="https://bridal-vault.netlify.app/preview.png">
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0;}
+
+*{
+box-sizing:border-box;
+}
 
 body{
+margin:0;
 font-family:'Inter',sans-serif;
-background:#121212;
-color:#f2f2f2;
+background:#f8f5f0;
+color:#1c1c1c;
+line-height:1.8;
 overflow-x:hidden;
+}
+
+/* WATERMARK */
+body::before{
+content:"BRIDAL VAULT";
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+font-family:'Playfair Display',serif;
+font-size:12vw;
+letter-spacing:1vw;
+color:rgba(198,167,94,0.03);
+pointer-events:none;
+z-index:0;
+text-align:center;
+max-width:90%;
 }
 
 /* HEADER */
@@ -29,154 +57,148 @@ position:absolute;
 top:0;
 left:0;
 width:100%;
-padding:40px 6%;
+padding:30px 5%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-z-index:10;
+z-index:5;
 }
 
 .logo{
 font-family:'Playfair Display',serif;
 font-size:18px;
-letter-spacing:10px;
+letter-spacing:6px;
+font-weight:500;
 color:#c6a75e;
 }
 
 nav{
 display:flex;
-gap:30px;
+gap:25px;
+flex-wrap:wrap;
 }
 
 nav a{
-color:#ffffff;
 text-decoration:none;
-font-size:11px;
-letter-spacing:3px;
+color:#333;
+font-size:12px;
+letter-spacing:2px;
 text-transform:uppercase;
-opacity:0.7;
-transition:0.4s;
+transition:0.3s;
 }
 
 nav a:hover{
-opacity:1;
 color:#c6a75e;
 }
 
 /* HERO */
 .hero{
-height:100vh;
+min-height:100svh;
 background:url('hero.png') center/cover no-repeat;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
 position:relative;
+padding:120px 20px;
 }
 
 .hero::after{
 content:"";
 position:absolute;
 inset:0;
-background:linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.55));
+background:rgba(248,245,240,0.65);
 }
 
 .hero-content{
 position:relative;
 z-index:2;
 max-width:900px;
-padding:0 20px;
 }
 
 .hero h1{
 font-family:'Playfair Display',serif;
-font-size:clamp(42px,7vw,88px);
+font-size:clamp(32px,6vw,72px);
 font-weight:400;
-letter-spacing:3px;
-margin-bottom:15px;
+margin-bottom:30px;
+line-height:1.2;
 }
 
 .hero p{
-font-size:12px;
-letter-spacing:4px;
-text-transform:uppercase;
-opacity:0.8;
+font-size:clamp(14px,2vw,18px);
+color:#444;
 margin-bottom:40px;
 }
 
 .button{
-background:transparent;
-border:1px solid #c6a75e;
-color:#c6a75e;
-padding:15px 40px;
-letter-spacing:4px;
-font-size:11px;
+background:#c6a75e;
+color:white;
+padding:18px 50px;
+letter-spacing:2px;
+font-size:12px;
 text-transform:uppercase;
-text-decoration:none;
+border:none;
+cursor:pointer;
 transition:0.4s;
+display:inline-block;
+text-decoration:none;
 }
 
 .button:hover{
-background:#c6a75e;
-color:#000;
+background:#b5954e;
 }
 
-/* SECTION */
+/* SECTIONS */
 .section{
-padding:180px 10%;
+padding:140px 10%;
 text-align:center;
+position:relative;
+z-index:2;
 }
 
 .section h2{
 font-family:'Playfair Display',serif;
-font-size:clamp(30px,4vw,50px);
-font-weight:400;
-letter-spacing:3px;
+font-size:clamp(28px,4vw,44px);
 margin-bottom:30px;
-}
-
-.about-text{
-max-width:720px;
-margin:0 auto;
-opacity:0.75;
-line-height:2;
+font-weight:400;
 }
 
 /* GALLERY */
 .gallery{
-margin-top:140px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:40px;
+margin-top:80px;
 }
 
 .gallery img{
 width:100%;
-height:90vh;
+height:500px;
 object-fit:cover;
-margin-bottom:80px;
-filter:brightness(1.05) contrast(1.05);
-transition:transform 1.2s ease;
+transition:0.5s;
 }
 
 .gallery img:hover{
 transform:scale(1.02);
 }
 
-/* REVIEW */
-.review{
-max-width:600px;
-margin:0 auto;
-opacity:0.7;
+/* REVIEWS */
+.review-card{
+background:#ffffff;
+padding:60px;
+max-width:700px;
+margin:40px auto;
+box-shadow:0 20px 60px rgba(0,0,0,0.05);
 font-style:italic;
-line-height:1.8;
 }
 
 /* FOOTER */
 footer{
-padding:120px 10%;
+background:#e9e2d6;
+padding:80px 10%;
 text-align:center;
-border-top:1px solid rgba(255,255,255,0.1);
-font-size:12px;
-letter-spacing:2px;
-opacity:0.6;
+font-size:13px;
+letter-spacing:1px;
 }
 
 /* WHATSAPP */
@@ -184,18 +206,29 @@ opacity:0.6;
 position:fixed;
 bottom:40px;
 right:40px;
-border:1px solid #c6a75e;
-color:#c6a75e;
-padding:14px 28px;
+background:#c6a75e;
+color:white;
+padding:18px 30px;
 text-decoration:none;
-font-size:11px;
-letter-spacing:3px;
-transition:0.4s;
+letter-spacing:1px;
+font-size:12px;
+}
+.section{
+opacity:0;
+transform:translateY(40px);
+animation:fadeUp 1s ease forwards;
 }
 
-.whatsapp:hover{
-background:#c6a75e;
-color:#000;
+.section:nth-of-type(1){animation-delay:0.2s;}
+.section:nth-of-type(2){animation-delay:0.4s;}
+.section:nth-of-type(3){animation-delay:0.6s;}
+.section:nth-of-type(4){animation-delay:0.8s;}
+
+@keyframes fadeUp{
+to{
+opacity:1;
+transform:translateY(0);
+}
 }
 </style>
 </head>
@@ -206,41 +239,51 @@ color:#000;
 <div class="logo">BRIDAL VAULT</div>
 <nav>
 <a href="#about">About</a>
-<a href="#gallery">Collection</a>
+<a href="#gallery">Gallery</a>
+<a href="#reviews">Reviews</a>
 <a href="#contact">Contact</a>
-<a href="booking.html">Reserve</a>
+<a href="booking.html">Book</a>
 </nav>
 </header>
 
 <section class="hero">
 <div class="hero-content">
-<h1>Bridal Vault</h1>
-<p>Couture Bridal Atelier</p>
-<a href="booking.html" class="button">Reserve Private Fitting</a>
+<h1>Bespoke Bridal Couture</h1>
+<p>Exquisite wedding gowns crafted with precision, artistry and timeless refinement.</p>
+<a href="booking.html" class="button">Reserve Private Consultation</a>
 </div>
 </section>
 
 <section class="section" id="about">
-<h2>The Atelier</h2>
-<p class="about-text">
-A couture bridal house devoted to sculpted silhouettes, architectural precision and timeless refinement. Each gown is crafted as a statement of quiet luxury.
+<h2>About Bridal Vault</h2>
+<p>
+Bridal Vault specializes in couture wedding dresses crafted with precision, artistry and refined elegance for the modern bride.
 </p>
 </section>
 
-<section class="gallery" id="gallery">
+<section class="section" id="gallery">
+<h2>Our Creations</h2>
+<p style="max-width:650px;margin:0 auto;color:#555;">
+Each gown is a statement of refinement, craftsmanship and timeless elegance.
+</p>
+
+<div class="gallery">
 <img src="dress1.jpeg">
 <img src="dress2.jpeg">
 <img src="dress3.jpeg">
-<img src="studio1.jpeg">
+  <img src="studio1.jpeg">
 <img src="detail1.jpeg">
 <img src="dress4.jpeg">
+</div>
 </section>
 
-<section class="section">
-<h2>Client Words</h2>
-<p class="review">
-“An experience that felt personal, intentional and extraordinary. My gown was not just a dress — it was art.”
-</p>
+<section class="section" id="reviews">
+<h2>Client Love</h2>
+<div class="review-card">
+<p>★★★★★</p>
+<p>Beautiful craftsmanship and exceptional service. My dress was everything I dreamed of.</p>
+</div>
+<a href="https://www.google.com/search?q=bridal+vault+kempton+park" class="button">Leave a Google Review</a>
 </section>
 
 <section class="section" id="contact">
@@ -248,13 +291,14 @@ A couture bridal house devoted to sculpted silhouettes, architectural precision 
 <p>066 224 3626</p>
 <p>bridalvault@gmail.com</p>
 <p>
-<a href="https://www.instagram.com/bridalvault/" style="color:#c6a75e;">Instagram</a> |
-<a href="https://www.facebook.com/BridalVault/" style="color:#c6a75e;">Facebook</a>
+<a href="https://www.instagram.com/bridalvault/">Instagram</a> |
+<a href="https://www.facebook.com/BridalVault/">Facebook</a>
 </p>
 </section>
 
 <footer>
-© 2026 Bridal Vault — Couture Bridal Atelier
+<p>© 2026 Bridal Vault. All Rights Reserved.</p>
+<p>Designed with elegance by Dimakatso's Professional Touch</p>
 </footer>
 
 <a href="https://wa.me/27662243626" class="whatsapp">WhatsApp</a>
