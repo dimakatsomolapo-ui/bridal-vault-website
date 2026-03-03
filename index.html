@@ -4,9 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bridal Vault | Custom Wedding Dresses</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
+<!-- Open Graph Preview -->
+<meta property="og:title" content="Bridal Vault | Custom Wedding Dresses">
+<meta property="og:description" content="Luxury bridal designs crafted with elegance and refinement.">
+<meta property="og:image" content="https://bridal-vault.netlify.app/preview.png">
+<meta property="og:url" content="https://bridal-vault.netlify.app/">
+<meta property="og:type" content="website">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Bridal Vault | Custom Wedding Dresses">
+<meta name="twitter:description" content="Luxury bridal designs crafted with elegance and refinement.">
+<meta name="twitter:image" content="https://bridal-vault.netlify.app/preview.png">
+
 <style>
+
+*{
+box-sizing:border-box;
+}
 
 body{
 margin:0;
@@ -17,7 +34,7 @@ line-height:1.8;
 overflow-x:hidden;
 }
 
-/* SOFTER WATERMARK */
+/* WATERMARK */
 body::before{
 content:"BRIDAL VAULT";
 position:fixed;
@@ -27,17 +44,20 @@ transform:translate(-50%,-50%);
 font-family:'Playfair Display',serif;
 font-size:12vw;
 letter-spacing:1vw;
-color:rgba(198,167,94,0.035);
+color:rgba(198,167,94,0.03);
 pointer-events:none;
 z-index:0;
-max-width:90%;
 text-align:center;
+max-width:90%;
 }
+
 /* HEADER */
 header{
 position:absolute;
+top:0;
+left:0;
 width:100%;
-padding:45px 10%;
+padding:30px 5%;
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -46,14 +66,19 @@ z-index:5;
 
 .logo{
 font-family:'Playfair Display',serif;
-font-size:20px;
-letter-spacing:8px;
+font-size:18px;
+letter-spacing:6px;
 font-weight:500;
 color:#c6a75e;
 }
 
+nav{
+display:flex;
+gap:25px;
+flex-wrap:wrap;
+}
+
 nav a{
-margin-left:40px;
 text-decoration:none;
 color:#333;
 font-size:12px;
@@ -89,23 +114,22 @@ background:rgba(248,245,240,0.65);
 position:relative;
 z-index:2;
 max-width:900px;
-width:100%;
 }
 
 .hero h1{
 font-family:'Playfair Display',serif;
-font-size:clamp(32px, 6vw, 72px);
+font-size:clamp(32px,6vw,72px);
 font-weight:400;
 margin-bottom:30px;
 line-height:1.2;
 }
 
 .hero p{
-font-size:clamp(14px, 2vw, 18px);
+font-size:clamp(14px,2vw,18px);
 color:#444;
+margin-bottom:40px;
 }
 
-/* BUTTON */
 .button{
 background:#c6a75e;
 color:white;
@@ -116,6 +140,8 @@ text-transform:uppercase;
 border:none;
 cursor:pointer;
 transition:0.4s;
+display:inline-block;
+text-decoration:none;
 }
 
 .button:hover{
@@ -124,7 +150,7 @@ background:#b5954e;
 
 /* SECTIONS */
 .section{
-padding:160px 14%;
+padding:140px 10%;
 text-align:center;
 position:relative;
 z-index:2;
@@ -132,48 +158,24 @@ z-index:2;
 
 .section h2{
 font-family:'Playfair Display',serif;
-font-size:44px;
+font-size:clamp(28px,4vw,44px);
 margin-bottom:30px;
 font-weight:400;
-}
-
-/* BOOKING */
-.booking{
-background:#ffffff;
-max-width:750px;
-margin:0 auto;
-padding:70px;
-box-shadow:0 25px 80px rgba(0,0,0,0.05);
-}
-
-.booking input,
-.booking textarea{
-width:100%;
-padding:18px;
-margin-bottom:25px;
-border:1px solid #e5dfd3;
-font-family:'Inter';
-font-size:14px;
-}
-
-.booking textarea{
-min-height:140px;
-resize:none;
 }
 
 /* GALLERY */
 .gallery{
 display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:70px;
-margin-top:90px;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:40px;
+margin-top:80px;
 }
 
 .gallery img{
 width:100%;
-height:650px;
+height:500px;
 object-fit:cover;
-transition:0.6s ease;
+transition:0.5s;
 }
 
 .gallery img:hover{
@@ -183,23 +185,17 @@ transform:scale(1.02);
 /* REVIEWS */
 .review-card{
 background:#ffffff;
-padding:70px;
-max-width:750px;
-margin:60px auto;
+padding:60px;
+max-width:700px;
+margin:40px auto;
 box-shadow:0 20px 60px rgba(0,0,0,0.05);
 font-style:italic;
-}
-
-/* CONTACT */
-.contact p{
-margin:8px 0;
-letter-spacing:1px;
 }
 
 /* FOOTER */
 footer{
 background:#e9e2d6;
-padding:100px 10%;
+padding:80px 10%;
 text-align:center;
 font-size:13px;
 letter-spacing:1px;
@@ -208,13 +204,13 @@ letter-spacing:1px;
 /* WHATSAPP */
 .whatsapp{
 position:fixed;
-bottom:50px;
-right:50px;
+bottom:40px;
+right:40px;
 background:#c6a75e;
 color:white;
-padding:20px 35px;
+padding:18px 30px;
 text-decoration:none;
-letter-spacing:2px;
+letter-spacing:1px;
 font-size:12px;
 }
 
@@ -224,12 +220,13 @@ font-size:12px;
 <body>
 
 <header>
-<h2 class="logo">BRIDAL VAULT</h2>
+<div class="logo">BRIDAL VAULT</div>
 <nav>
 <a href="#about">About</a>
 <a href="#gallery">Gallery</a>
 <a href="#reviews">Reviews</a>
 <a href="#contact">Contact</a>
+<a href="booking.html">Book</a>
 </nav>
 </header>
 
@@ -237,26 +234,15 @@ font-size:12px;
 <div class="hero-content">
 <h1>Custom Wedding Dresses Crafted For Your Moment</h1>
 <p>Luxury bridal designs tailored to your unique love story.</p>
-</div>
-</section>
-
-<section class="section">
-<div class="booking">
-<h2>Book Your Private Consultation</h2>
-<form name="booking" method="POST" data-netlify="true" action="/success.html">
-<input type="hidden" name="form-name" value="booking" />
-<input type="text" name="fullName" placeholder="Full Name" required />
-<input type="email" name="email" placeholder="Email" required />
-<input type="tel" name="phone" placeholder="Phone Number" required />
-<textarea name="notes" placeholder="Tell us about your dream dress"></textarea>
-<button type="submit" class="button">Submit Booking</button>
-</form>
+<a href="booking.html" class="button">Book Private Consultation</a>
 </div>
 </section>
 
 <section class="section" id="about">
 <h2>About Bridal Vault</h2>
-<p>Bridal Vault specializes in couture wedding dresses crafted with precision, artistry and refined elegance for the modern bride.</p>
+<p>
+Bridal Vault specializes in couture wedding dresses crafted with precision, artistry and refined elegance for the modern bride.
+</p>
 </section>
 
 <section class="section" id="gallery">
@@ -269,8 +255,8 @@ Each gown is a statement of refinement, craftsmanship and timeless elegance.
 <img src="dress1.jpeg">
 <img src="dress2.jpeg">
 <img src="dress3.jpeg">
+  <img src="studio1.jpeg">
 <img src="detail1.jpeg">
-<img src="studio1.jpeg">
 <img src="dress4.jpeg">
 </div>
 </section>
@@ -284,7 +270,7 @@ Each gown is a statement of refinement, craftsmanship and timeless elegance.
 <a href="https://www.google.com/search?q=bridal+vault+kempton+park" class="button">Leave a Google Review</a>
 </section>
 
-<section class="section contact" id="contact">
+<section class="section" id="contact">
 <h2>Contact</h2>
 <p>066 224 3626</p>
 <p>bridalvault@gmail.com</p>
