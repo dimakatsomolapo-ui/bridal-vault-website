@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Book Consultation | Bridal Vault</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+
+<style>
+body{
+font-family:'Inter',sans-serif;
+background:#f8f5f0;
+color:#1c1c1c;
+margin:0;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+overflow-x:hidden;
+}
+
+.container{
+background:white;
+padding:60px;
+max-width:520px;
+width:90%;
+box-shadow:0 20px 60px rgba(0,0,0,0.08);
+}
+
+h1{
+font-family:'Playfair Display',serif;
+font-weight:400;
+margin-bottom:30px;
+text-align:center;
+}
+
+label{
+display:block;
+margin-top:15px;
+font-size:14px;
+}
+
+input, select, textarea{
+width:100%;
+padding:12px;
+margin-top:5px;
+border:1px solid #e5dfd3;
+font-family:'Inter';
+font-size:14px;
+}
+
+textarea{
+resize:none;
+}
+
+button{
+margin-top:25px;
+width:100%;
+padding:15px;
+background:#c6a75e;
+color:white;
+border:none;
+cursor:pointer;
+letter-spacing:1px;
+text-transform:uppercase;
+font-size:12px;
+}
+
+button:hover{
+background:#b5954e;
+}
+
+.small-note{
+margin-top:15px;
+font-size:12px;
+color:#777;
+text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+<h1>Book Your Bridal Consultation</h1>
+
+<form name="booking"
+      method="POST"
+      data-netlify="true"
+      id="bookingForm">
+
+<input type="hidden" name="form-name" value="booking" />
+
+<label>Full Name</label>
+<input type="text" name="name" required>
+
+<label>Phone Number</label>
+<input type="tel" name="phone" required>
+
+<label>Email Address</label>
+<input type="email" name="email">
+
+<label>Consultation Service</label>
+<select name="service" required>
+<option value="" disabled selected>Select</option>
+<option value="Bridal Consultation – R150">
+Bridal Consultation & Fitting – R150
+</option>
+</select>
+
+<label>Preferred Date</label>
+<input type="date" name="date" required>
+
+<label>Preferred Time</label>
+<input type="time" name="time" required>
+
+<label>Additional Notes</label>
+<textarea name="notes" rows="3"></textarea>
+
+<button type="submit">Proceed to Secure Payment</button>
+
+<div class="small-note">
+A R150 non-refundable consultation fee secures your appointment.
+</div>
+
+</form>
+</div>
+
+<script>
+document.getElementById("bookingForm").addEventListener("submit", function(e){
+e.preventDefault();
+
+const form = e.target;
+const formData = new FormData(form);
+
+fetch("/", {
+method: "POST",
+headers: { "Content-Type": "application/x-www-form-urlencoded" },
+body: new URLSearchParams(formData).toString()
+})
+.then(() => {
+window.location.href = "https://securepay.ikhokha.com/z4l21mrssdscv7b";
+})
+.catch(error => alert("Submission failed. Please try again."));
+});
+</script>
+
+</body>
+</html>
