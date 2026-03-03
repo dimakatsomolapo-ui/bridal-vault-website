@@ -117,8 +117,16 @@ font-weight:bold;
 <section class="hero">
 <h1>Custom Wedding Dresses Crafted For Your Moment</h1>
 <p>Luxury bridal designs tailored to your unique love story.</p>
-<a href="https://wa.me/27662243626" class="button">Book Appointment</a>
-</section>
+<form name="booking" method="POST" data-netlify="true">
+  <input type="hidden" name="form-name" value="booking" />
+  
+  <input type="text" name="fullName" placeholder="Full Name" required><br><br>
+  <input type="email" name="email" placeholder="Email" required><br><br>
+  <input type="tel" name="phone" placeholder="Phone Number" required><br><br>
+  <textarea name="notes" placeholder="Tell us about your dream dress"></textarea><br><br>
+  
+  <button type="submit" class="button">Submit Booking</button>
+</form></section>
 
 <section class="section" id="about">
 <h2>About Us</h2>
