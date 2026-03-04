@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bridal Vault | The Atelier</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+
+body{
+font-family:'Inter',sans-serif;
+background:#f8f5f0;
+color:#1c1c1c;
+line-height:1.9;
+}
+
+/* HEADER */
+header{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+padding:35px 6%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:10;
+}
+
+.logo{
+font-family:'Playfair Display',serif;
+font-size:18px;
+letter-spacing:8px;
+font-weight:500;
+color:#c2a14a;
+}
+
+nav{
+display:flex;
+gap:30px;
+}
+
+nav a{
+text-decoration:none;
+color:#333;
+font-size:12px;
+letter-spacing:2px;
+text-transform:uppercase;
+transition:0.3s ease;
+}
+
+nav a:hover{
+color:#c2a14a;
+}
+
+/* HERO */
+.hero{
+height:80vh;
+background:url('studio1.jpeg') center/cover no-repeat;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+position:relative;
+padding:120px 20px;
+}
+
+.hero::after{
+content:"";
+position:absolute;
+inset:0;
+background:rgba(248,245,240,0.65);
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+max-width:800px;
+}
+
+.hero h1{
+font-family:'Playfair Display',serif;
+font-size:clamp(40px,6vw,70px);
+font-weight:400;
+letter-spacing:2px;
+margin-bottom:20px;
+}
+
+/* CONTENT */
+.section{
+padding:160px 10%;
+max-width:900px;
+margin:auto;
+}
+
+.section h2{
+font-family:'Playfair Display',serif;
+font-size:36px;
+font-weight:400;
+margin-bottom:40px;
+letter-spacing:1px;
+}
+
+.section p{
+margin-bottom:30px;
+opacity:0.85;
+}
+
+/* SIGNATURE */
+.signature{
+margin-top:60px;
+font-family:'Playfair Display',serif;
+font-size:24px;
+color:#c2a14a;
+}
+
+/* FOOTER */
+footer{
+background:#ece6da;
+padding:80px 10%;
+text-align:center;
+font-size:13px;
+letter-spacing:1px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+header{
+padding:25px 6%;
+}
+
+.logo{
+letter-spacing:4px;
+font-size:15px;
+}
+
+nav{
+gap:15px;
+}
+
+.hero{
+height:60vh;
+}
+
+.section{
+padding:100px 8%;
+}
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">BRIDAL VAULT</div>
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="booking.html">Book</a>
+</nav>
+</header>
+
+<section class="hero">
+<div class="hero-content">
+<h1>The Atelier</h1>
+</div>
+</section>
+
+<section class="section">
+
+<h2>Our Philosophy</h2>
+
+<p>
+Bridal Vault was founded on the belief that a gown should not simply be worn — it should be experienced.
+Each piece begins with intention, guided by proportion, silhouette and architectural balance.
+</p>
+
+<p>
+Our atelier approaches bridal couture with restraint and precision.
+We do not follow trends. We refine form.
+Every seam, structure and contour is designed to create presence without excess.
+</p>
+
+<p>
+Consultations are private. Creations are deliberate.
+The result is a gown that feels both timeless and unmistakably personal.
+</p>
+
+<div class="signature">
+Bridal Vault
+</div>
+
+</section>
+
+<footer>
+<p>© 2026 Bridal Vault. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
