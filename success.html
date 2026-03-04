@@ -1,34 +1,82 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Booking Confirmed</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bridal Vault | Appointment Confirmed</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
 <style>
-body {
-font-family: 'Inter', sans-serif;
-background:#fdfaf4;
+*{box-sizing:border-box;margin:0;padding:0;}
+
+body{
+font-family:'Inter',sans-serif;
+background:#f6f2ea;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+padding:40px;
 text-align:center;
-padding:100px;
+color:#1c1c1c;
 }
-h1 {
-font-family:'Playfair Display', serif;
-color:#bfa36a;
+
+.container{
+background:#ffffff;
+padding:100px 60px;
+max-width:650px;
+box-shadow:0 30px 90px rgba(0,0,0,0.05);
 }
-a {
+
+h1{
+font-family:'Playfair Display',serif;
+font-weight:400;
+font-size:36px;
+margin-bottom:25px;
+letter-spacing:1px;
+}
+
+p{
+font-size:15px;
+line-height:1.9;
+opacity:0.75;
+margin-bottom:40px;
+}
+
+.button{
 display:inline-block;
-margin-top:30px;
-padding:12px 24px;
-background:#bfa36a;
-color:white;
+padding:16px 40px;
+border:1px solid #c2a14a;
+color:#c2a14a;
 text-decoration:none;
-border-radius:6px;
+letter-spacing:3px;
+font-size:11px;
+text-transform:uppercase;
+transition:0.3s;
+}
+
+.button:hover{
+background:#c2a14a;
+color:white;
 }
 </style>
 </head>
+
 <body>
-<h1>Thank You!</h1>
-<p>Your bridal consultation request has been received.</p>
-<p>We will contact you shortly to confirm your appointment.</p>
-<a href="/">Return to Bridal Vault</a>
+
+<div class="container">
+
+<h1>Your Appointment is Secured</h1>
+
+<p>
+Your private fitting has been successfully confirmed.  
+Our atelier will contact you shortly to finalize your consultation details.
+</p>
+
+<a href="index.html" class="button">Return to Atelier</a>
+
+</div>
+
 </body>
 </html>
