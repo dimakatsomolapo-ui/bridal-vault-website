@@ -7,7 +7,14 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
+<meta property="og:title" content="Bridal Vault | The Atelier">
+<meta property="og:description" content="Luxury bridal alterations and refinement by Bridal Vault.">
+<meta property="og:image" content="https://bridal-vault.netlify.app/preview.png">
+<meta property="og:url" content="https://bridal-vault.netlify.app/about.html">
+<meta property="og:type" content="website">
+
 <style>
+
 *{box-sizing:border-box;margin:0;padding:0;}
 
 body{
@@ -15,6 +22,26 @@ font-family:'Inter',sans-serif;
 background:#f8f5f0;
 color:#1c1c1c;
 line-height:1.9;
+overflow-x:hidden;
+position:relative;
+}
+
+/* WATERMARK */
+body::before{
+content:"";
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:60vw;
+height:60vw;
+max-width:700px;
+max-height:700px;
+background:url('BV.jpeg') center/contain no-repeat;
+opacity:0.07;
+pointer-events:none;
+z-index:0;
+filter:grayscale(100%);
 }
 
 /* HEADER */
@@ -72,7 +99,7 @@ padding:120px 20px;
 content:"";
 position:absolute;
 inset:0;
-background:rgba(248,245,240,0.65);
+background:rgba(248,245,240,0.55);
 }
 
 .hero-content{
@@ -86,7 +113,6 @@ font-family:'Playfair Display',serif;
 font-size:clamp(40px,6vw,70px);
 font-weight:400;
 letter-spacing:2px;
-margin-bottom:20px;
 }
 
 /* CONTENT */
@@ -94,26 +120,29 @@ margin-bottom:20px;
 padding:160px 10%;
 max-width:900px;
 margin:auto;
+position:relative;
+z-index:2;
 }
 
 .section h2{
 font-family:'Playfair Display',serif;
-font-size:36px;
+font-size:38px;
 font-weight:400;
-margin-bottom:40px;
+margin-bottom:50px;
 letter-spacing:1px;
 }
 
 .section p{
-margin-bottom:30px;
+margin-bottom:32px;
 opacity:0.85;
+font-size:16px;
 }
 
 /* SIGNATURE */
 .signature{
-margin-top:60px;
+margin-top:70px;
 font-family:'Playfair Display',serif;
-font-size:24px;
+font-size:26px;
 color:#c2a14a;
 }
 
@@ -124,6 +153,25 @@ padding:80px 10%;
 text-align:center;
 font-size:13px;
 letter-spacing:1px;
+}
+
+/* WHATSAPP */
+.whatsapp{
+position:fixed;
+bottom:40px;
+right:40px;
+background:#c2a14a;
+color:white;
+padding:16px 28px;
+text-decoration:none;
+letter-spacing:1px;
+font-size:12px;
+transition:0.3s ease;
+z-index:9999;
+}
+
+.whatsapp:hover{
+background:#a88834;
 }
 
 /* MOBILE */
@@ -150,7 +198,12 @@ height:60vh;
 padding:100px 8%;
 }
 
+.section h2{
+font-size:30px;
 }
+
+}
+
 </style>
 </head>
 
@@ -176,23 +229,27 @@ padding:100px 8%;
 <h2>Our Philosophy</h2>
 
 <p>
-Bridal Vault was founded on the belief that a gown should not simply be worn — it should be experienced.
-Each piece begins with intention, guided by proportion, silhouette and architectural balance.
+Founded by Charmaine, Bridal Vault is a private bridal atelier devoted to perfecting the final details of a bride’s gown. Each dress that enters the studio is treated with care, precision and respect for the moment it represents. Through expert alterations, refined tailoring and thoughtful detailing, Charmaine transforms beautiful gowns into pieces that feel truly personal.
 </p>
 
 <p>
-Our atelier approaches bridal couture with restraint and precision.
-We do not follow trends. We refine form.
-Every seam, structure and contour is designed to create presence without excess.
+A wedding dress is rarely just a dress. It carries emotion, anticipation and the quiet excitement of a once-in-a-lifetime moment. At Bridal Vault, the focus is on ensuring that every bride feels completely confident in her gown — that the silhouette is balanced, the fit is flawless and every detail reflects the bride wearing it.
 </p>
 
 <p>
-Consultations are private. Creations are deliberate.
-The result is a gown that feels both timeless and unmistakably personal.
+From subtle structural adjustments to delicate embellishments, each modification is approached with patience and craftsmanship. Charmaine works closely with every bride, guiding fittings with a careful eye for proportion, movement and elegance. The result is a gown that feels effortless, refined and unmistakably yours.
+</p>
+
+<p>
+Consultations at Bridal Vault are intentionally private and personal. This allows every bride the space and attention needed to perfect her gown without pressure or distraction. The experience is calm, focused and tailored entirely to the bride’s vision.
+</p>
+
+<p>
+Because when the moment arrives, the gown should not only look beautiful — it should feel completely right.
 </p>
 
 <div class="signature">
-Bridal Vault
+Charmaine — Founder, Bridal Vault
 </div>
 
 </section>
@@ -200,6 +257,8 @@ Bridal Vault
 <footer>
 <p>© 2026 Bridal Vault. All Rights Reserved.</p>
 </footer>
+
+<a href="https://wa.me/27662243626" class="whatsapp">WhatsApp</a>
 
 </body>
 </html>
