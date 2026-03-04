@@ -8,8 +8,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <meta property="og:title" content="Bridal Vault | Contact">
-<meta property="og:description" content="Contact Bridal Vault to schedule your bridal consultation.">
+<meta property="og:description" content="Contact Bridal Vault to enquire about bridal alterations and fittings.">
 <meta property="og:image" content="https://bridal-vault.netlify.app/preview.png">
+<meta property="og:url" content="https://bridal-vault.netlify.app/contact.html">
+<meta property="og:type" content="website">
 
 <style>
 
@@ -25,6 +27,7 @@ position:relative;
 }
 
 /* WATERMARK */
+
 body::before{
 content:"";
 position:fixed;
@@ -75,7 +78,6 @@ color:#333;
 font-size:12px;
 letter-spacing:2px;
 text-transform:uppercase;
-transition:0.3s;
 }
 
 nav a:hover{
@@ -85,14 +87,13 @@ color:#c2a14a;
 /* HERO */
 
 .hero{
-height:70vh;
+height:65vh;
 background:url('studio1.jpeg') center/cover no-repeat;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
 position:relative;
-padding:120px 20px;
 }
 
 .hero::after{
@@ -102,12 +103,9 @@ inset:0;
 background:rgba(248,245,240,0.6);
 }
 
-.hero-content{
+.hero h1{
 position:relative;
 z-index:2;
-}
-
-.hero h1{
 font-family:'Playfair Display',serif;
 font-size:clamp(40px,6vw,70px);
 font-weight:400;
@@ -117,8 +115,8 @@ letter-spacing:2px;
 /* CONTACT SECTION */
 
 .section{
-padding:160px 10%;
-max-width:900px;
+padding:140px 10%;
+max-width:800px;
 margin:auto;
 position:relative;
 z-index:2;
@@ -127,16 +125,16 @@ text-align:center;
 
 .section h2{
 font-family:'Playfair Display',serif;
-font-size:36px;
-margin-bottom:50px;
+font-size:34px;
+margin-bottom:40px;
 }
 
-.contact-info{
-margin-bottom:60px;
+.contact-details{
+margin-bottom:50px;
 line-height:2;
 }
 
-.contact-info a{
+.contact-details a{
 color:#c2a14a;
 text-decoration:none;
 }
@@ -149,10 +147,10 @@ flex-direction:column;
 gap:20px;
 }
 
-input,textarea{
+input, textarea{
 padding:16px;
-border:1px solid #e0d8c8;
-background:#fff;
+border:1px solid #e2dccf;
+background:#ffffff;
 font-family:'Inter';
 font-size:14px;
 }
@@ -223,12 +221,12 @@ nav{
 gap:15px;
 }
 
-.section{
-padding:100px 8%;
+.hero{
+height:50vh;
 }
 
-.hero{
-height:55vh;
+.section{
+padding:100px 8%;
 }
 
 }
@@ -240,6 +238,7 @@ height:55vh;
 
 <header>
 <div class="logo">BRIDAL VAULT</div>
+
 <nav>
 <a href="index.html">Home</a>
 <a href="about.html">About</a>
@@ -249,16 +248,14 @@ height:55vh;
 </header>
 
 <section class="hero">
-<div class="hero-content">
 <h1>Contact</h1>
-</div>
 </section>
 
 <section class="section">
 
 <h2>Get In Touch</h2>
 
-<div class="contact-info">
+<div class="contact-details">
 <p>Phone: 066 224 3626</p>
 <p>Email: bridalvault@gmail.com</p>
 <p>
@@ -268,12 +265,14 @@ height:55vh;
 </div>
 
 <form name="contact" method="POST" data-netlify="true">
+
 <input type="hidden" name="form-name" value="contact">
 
 <input type="text" name="name" placeholder="Full Name" required>
+
 <input type="email" name="email" placeholder="Email Address" required>
 
-<textarea name="message" placeholder="Your message"></textarea>
+<textarea name="message" placeholder="Your Message"></textarea>
 
 <button type="submit">Send Message</button>
 
@@ -283,6 +282,7 @@ height:55vh;
 
 <footer>
 <p>© 2026 Bridal Vault. All Rights Reserved.</p>
+  <p>Designed with elegance by Dimakatso's Professional Touch</p>
 </footer>
 
 <a href="https://wa.me/27662243626" class="whatsapp">WhatsApp</a>
