@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bridal Vault | Gallery</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{box-sizing:border-box;margin:0;padding:0;}
+
+body{
+font-family:'Inter',sans-serif;
+background:#f8f5f0;
+color:#1c1c1c;
+overflow-x:hidden;
+}
+
+/* --------------------
+PAGE REVEAL PETAL
+-------------------- */
+
+.petal-reveal{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#f8f5f0;
+z-index:9999;
+display:flex;
+justify-content:center;
+align-items:center;
+animation:reveal 2s forwards;
+}
+
+.petal{
+width:120px;
+height:120px;
+background:radial-gradient(circle,#f2d5dc,#e8a6b2);
+border-radius:60% 40% 60% 40%;
+opacity:0.8;
+animation:float 2s ease-out;
+}
+
+@keyframes reveal{
+0%{opacity:1}
+85%{opacity:1}
+100%{opacity:0;visibility:hidden}
+}
+
+@keyframes float{
+0%{transform:scale(0)}
+100%{transform:scale(1.2)}
+}
+
+/* --------------------
+HEADER
+-------------------- */
+
+header{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+padding:35px 6%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:10;
+}
+
+.logo{
+font-family:'Playfair Display',serif;
+font-size:18px;
+letter-spacing:8px;
+color:#c2a14a;
+}
+
+nav{
+display:flex;
+gap:30px;
+}
+
+nav a{
+text-decoration:none;
+color:#333;
+font-size:12px;
+letter-spacing:2px;
+text-transform:uppercase;
+}
+
+/* --------------------
+HERO
+-------------------- */
+
+.hero{
+height:55vh;
+background:url('studio1.jpeg') center/cover no-repeat;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+position:relative;
+}
+
+.hero::after{
+content:"";
+position:absolute;
+inset:0;
+background:rgba(248,245,240,0.6);
+}
+
+.hero h1{
+font-family:'Playfair Display',serif;
+font-size:60px;
+font-weight:400;
+letter-spacing:2px;
+z-index:2;
+}
+
+/* --------------------
+ELEGANT GALLERY
+-------------------- */
+
+.section{
+padding:120px 8%;
+max-width:1200px;
+margin:auto;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:2fr 1fr;
+grid-auto-rows:320px;
+gap:25px;
+}
+
+.gallery img{
+width:100%;
+height:100%;
+object-fit:cover;
+cursor:pointer;
+transition:0.5s;
+}
+
+.gallery img:hover{
+transform:scale(1.04);
+}
+
+/* editorial variations */
+
+.gallery img:nth-child(3){
+grid-column:1 / span 2;
+}
+
+.gallery img:nth-child(7){
+grid-column:1 / span 2;
+}
+
+/* --------------------
+LIGHTBOX
+-------------------- */
+
+.lightbox{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:9998;
+}
+
+.lightbox img{
+max-width:90%;
+max-height:90%;
+}
+
+.lightbox.active{
+display:flex;
+}
+
+/* --------------------
+FOOTER
+-------------------- */
+
+footer{
+background:#ece6da;
+padding:80px 10%;
+text-align:center;
+font-size:13px;
+}
+
+/* --------------------
+WHATSAPP
+-------------------- */
+
+.whatsapp{
+position:fixed;
+bottom:40px;
+right:40px;
+background:#c2a14a;
+color:white;
+padding:16px 28px;
+text-decoration:none;
+font-size:12px;
+z-index:9999;
+}
+
+/* --------------------
+MOBILE
+-------------------- */
+
+@media(max-width:768px){
+
+.gallery{
+grid-template-columns:1fr;
+grid-auto-rows:300px;
+}
+
+.hero h1{
+font-size:36px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="petal-reveal">
+<div class="petal"></div>
+</div>
+
+<header>
+<div class="logo">BRIDAL VAULT</div>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="gallery.html">Gallery</a>
+<a href="booking.html">Book</a>
+<a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<section class="hero">
+<h1>Gallery</h1>
+</section>
+
+<section class="section">
+
+<div class="gallery">
+
+<img src="dress1.png">
+<img src="dress2.png">
+<img src="dress3.png">
+<img src="dress4.png">
+
+<img src="detail1.png">
+<img src="detail2.png">
+<img src="detail3.png">
+<img src="detail4.png">
+
+<img src="studio.png">
+<img src="studio1.png">
+
+<img src="studio2.png">
+<img src="studio3.png">
+
+</div>
+
+</section>
+
+<footer>
+<p>© 2026 Bridal Vault. All Rights Reserved.</p>
+</footer>
+
+<a href="https://wa.me/27662243626" class="whatsapp">WhatsApp</a>
+
+<div class="lightbox" id="lightbox">
+<img src="">
+</div>
+
+<script>
+
+const images=document.querySelectorAll(".gallery img");
+const lightbox=document.getElementById("lightbox");
+const lightboxImg=lightbox.querySelector("img");
+
+images.forEach(img=>{
+img.onclick=()=>{
+lightbox.classList.add("active");
+lightboxImg.src=img.src;
+};
+});
+
+lightbox.onclick=()=>{
+lightbox.classList.remove("active");
+};
+
+</script>
+
+</body>
+</html>
