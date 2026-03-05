@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -16,50 +16,6 @@ font-family:'Inter',sans-serif;
 background:#f8f5f0;
 color:#1c1c1c;
 overflow-x:hidden;
-}
-
-/* --------------------
-FALLING PETALS
--------------------- */
-
-.petals{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-pointer-events:none;
-z-index:9999;
-overflow:hidden;
-}
-
-.petal{
-position:absolute;
-top:-40px;
-width:18px;
-height:18px;
-background:radial-gradient(circle,#f5cbd6,#e8a6b2);
-border-radius:60% 40% 60% 40%;
-opacity:0.8;
-animation:fall linear forwards;
-}
-
-@keyframes fall{
-
-0%{
-transform:translateY(-50px) rotate(0deg);
-opacity:0;
-}
-
-10%{
-opacity:1;
-}
-
-100%{
-transform:translateY(110vh) rotate(360deg);
-opacity:0.8;
-}
-
 }
 
 /* --------------------
@@ -82,7 +38,15 @@ z-index:10;
 font-family:'Playfair Display',serif;
 font-size:18px;
 letter-spacing:8px;
-color:#c2a14a;
+background:linear-gradient(90deg,#c2a14a,#fff2c6,#c2a14a);
+background-size:200% auto;
+-webkit-background-clip:text;
+color:transparent;
+animation:goldShimmer 6s linear infinite;
+}
+
+@keyframes goldShimmer{
+to{background-position:200% center;}
 }
 
 nav{
@@ -96,6 +60,11 @@ color:#333;
 font-size:12px;
 letter-spacing:2px;
 text-transform:uppercase;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#c2a14a;
 }
 
 /* --------------------
@@ -103,20 +72,21 @@ HERO
 -------------------- */
 
 .hero{
-height:55vh;
+height:60vh;
 background:url('studio1.jpeg') center/cover no-repeat;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
 position:relative;
+overflow:hidden;
 }
 
 .hero::after{
 content:"";
 position:absolute;
 inset:0;
-background:rgba(248,245,240,0.6);
+background:rgba(248,245,240,0.65);
 }
 
 .hero h1{
@@ -127,8 +97,50 @@ letter-spacing:2px;
 z-index:2;
 }
 
+/* PETALS ONLY IN HERO */
+
+.petals{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+overflow:hidden;
+z-index:1;
+}
+
+.petal{
+position:absolute;
+top:-40px;
+width:18px;
+height:18px;
+background:radial-gradient(circle,#f5cbd6,#e8a6b2);
+border-radius:60% 40% 60% 40%;
+opacity:0.85;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+
+0%{
+transform:translateY(-50px) rotate(0deg);
+opacity:0;
+}
+
+10%{
+opacity:1;
+}
+
+100%{
+transform:translateY(110vh) rotate(360deg);
+opacity:0.8;
+}
+
+}
+
 /* --------------------
-ELEGANT GALLERY
+GALLERY
 -------------------- */
 
 .section{
@@ -141,7 +153,7 @@ margin:auto;
 display:grid;
 grid-template-columns:2fr 1fr;
 grid-auto-rows:320px;
-gap:25px;
+gap:28px;
 }
 
 .gallery img{
@@ -149,11 +161,13 @@ width:100%;
 height:100%;
 object-fit:cover;
 cursor:pointer;
-transition:0.5s;
+transition:transform 0.6s ease, filter 0.6s ease;
+filter:brightness(1.05);
 }
 
 .gallery img:hover{
-transform:scale(1.04);
+transform:scale(1.08);
+filter:brightness(1.12);
 }
 
 /* editorial layout */
@@ -241,10 +255,8 @@ font-size:36px;
 
 <body>
 
-<!-- Falling petals container -->
-<div class="petals" id="petals"></div>
-
 <header>
+
 <div class="logo">BRIDAL VAULT</div>
 
 <nav>
@@ -254,10 +266,15 @@ font-size:36px;
 <a href="booking.html">Book</a>
 <a href="contact.html">Contact</a>
 </nav>
+
 </header>
 
 <section class="hero">
+
+<div class="petals" id="petals"></div>
+
 <h1>Gallery</h1>
+
 </section>
 
 <section class="section">
@@ -286,7 +303,6 @@ font-size:36px;
 
 <footer>
 <p>© 2026 Bridal Vault. All Rights Reserved.</p>
-  <p>Designed with elegance by Dimakatso's Professional Touch</p>
 </footer>
 
 <a href="https://wa.me/27662243626" class="whatsapp">WhatsApp</a>
@@ -315,7 +331,7 @@ lightbox.classList.remove("active");
 };
 
 
-/* FALLING PETALS */
+/* HERO PETALS */
 
 const container=document.getElementById("petals");
 
@@ -338,7 +354,6 @@ petal.remove();
 
 let petalInterval=setInterval(createPetal,300);
 
-/* stop petals after 8 seconds */
 setTimeout(()=>{
 clearInterval(petalInterval);
 },8000);
