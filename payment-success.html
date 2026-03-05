@@ -8,8 +8,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
+
+*{box-sizing:border-box;margin:0;padding:0;}
+
 body{
-margin:0;
 font-family:'Inter',sans-serif;
 background:#f8f5f0;
 display:flex;
@@ -17,7 +19,57 @@ justify-content:center;
 align-items:center;
 min-height:100vh;
 text-align:center;
+overflow:hidden;
+animation:pageFade 1.2s ease;
+position:relative;
 }
+
+@keyframes pageFade{
+from{opacity:0;}
+to{opacity:1;}
+}
+
+/* WATERMARK */
+
+body::before{
+content:"";
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+width:60vw;
+height:60vw;
+max-width:700px;
+max-height:700px;
+background:url('BV.jpeg') center/contain no-repeat;
+opacity:0.07;
+pointer-events:none;
+z-index:0;
+filter:grayscale(100%);
+}
+
+/* LOGO */
+
+.logo{
+position:absolute;
+top:40px;
+left:50%;
+transform:translateX(-50%);
+font-family:'Playfair Display',serif;
+font-size:18px;
+letter-spacing:8px;
+background:linear-gradient(90deg,#c2a14a,#fff3c9,#c2a14a);
+background-size:200%;
+-webkit-background-clip:text;
+color:transparent;
+animation:goldShimmer 6s linear infinite;
+}
+
+@keyframes goldShimmer{
+to{background-position:200% center;}
+}
+
+/* MAIN CARD */
 
 .container{
 background:#ffffff;
@@ -25,6 +77,8 @@ padding:70px;
 max-width:650px;
 width:90%;
 box-shadow:0 25px 80px rgba(0,0,0,0.06);
+position:relative;
+z-index:2;
 }
 
 h1{
@@ -36,18 +90,164 @@ margin-bottom:20px;
 p{
 color:#555;
 margin-bottom:20px;
+line-height:1.8;
 }
+
+/* PETALS */
+
+.petals{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:1;
+overflow:hidden;
+}
+
+.petal{
+position:absolute;
+top:-40px;
+width:18px;
+height:18px;
+background:radial-gradient(circle,#f5cbd6,#e8a6b2);
+border-radius:60% 40% 60% 40%;
+opacity:.85;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+
+0%{
+transform:translateY(-50px) rotate(0deg);
+opacity:0;
+}
+
+10%{
+opacity:1;
+}
+
+100%{
+transform:translateY(110vh) rotate(360deg);
+opacity:.8;
+}
+
+}
+
+/* PARTICLES */
+
+.particles span{
+position:absolute;
+width:4px;
+height:4px;
+background:#ffffff;
+border-radius:50%;
+opacity:.6;
+animation:floatLight 6s linear infinite;
+}
+
+@keyframes floatLight{
+
+0%{
+transform:translateY(0);
+opacity:0;
+}
+
+50%{
+opacity:.8;
+}
+
+100%{
+transform:translateY(-200px);
+opacity:0;
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.container{
+padding:50px 35px;
+}
+
+.logo{
+font-size:15px;
+letter-spacing:5px;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
+<div class="logo">BRIDAL VAULT</div>
+
+<div class="petals" id="petals"></div>
+<div class="particles" id="particles"></div>
+
 <div class="container">
+
 <h1>Your Consultation Is Reserved</h1>
+
 <p>Thank you for your payment.</p>
+
 <p>Our atelier will contact you shortly to confirm your appointment details.</p>
+
 <p>We look forward to crafting something extraordinary for you.</p>
+
 </div>
+
+<script>
+
+/* PETALS */
+
+const container=document.getElementById("petals");
+
+function createPetal(){
+
+const petal=document.createElement("div");
+petal.classList.add("petal");
+
+petal.style.left=Math.random()*100+"vw";
+petal.style.animationDuration=(Math.random()*4+4)+"s";
+
+container.appendChild(petal);
+
+setTimeout(()=>{
+petal.remove();
+},8000);
+
+}
+
+let petalInterval=setInterval(createPetal,300);
+
+setTimeout(()=>{
+clearInterval(petalInterval);
+},8000);
+
+
+/* PARTICLES */
+
+const particles=document.getElementById("particles");
+
+for(let i=0;i<25;i++){
+
+const dot=document.createElement("span");
+
+dot.style.left=Math.random()*100+"%";
+dot.style.top=Math.random()*100+"%";
+dot.style.animationDuration=(Math.random()*5+3)+"s";
+
+particles.appendChild(dot);
+
+}
+
+</script>
 
 </body>
 </html>
