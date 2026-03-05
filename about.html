@@ -24,9 +24,16 @@ color:#1c1c1c;
 line-height:1.9;
 overflow-x:hidden;
 position:relative;
+animation:pageFade 1.2s ease;
+}
+
+@keyframes pageFade{
+from{opacity:0;}
+to{opacity:1;}
 }
 
 /* WATERMARK */
+
 body::before{
 content:"";
 position:fixed;
@@ -45,6 +52,7 @@ filter:grayscale(100%);
 }
 
 /* HEADER */
+
 header{
 position:absolute;
 top:0;
@@ -61,8 +69,15 @@ z-index:10;
 font-family:'Playfair Display',serif;
 font-size:18px;
 letter-spacing:8px;
-font-weight:500;
-color:#c2a14a;
+background:linear-gradient(90deg,#c2a14a,#fff3c9,#c2a14a);
+background-size:200%;
+-webkit-background-clip:text;
+color:transparent;
+animation:goldShimmer 6s linear infinite;
+}
+
+@keyframes goldShimmer{
+to{background-position:200% center;}
 }
 
 nav{
@@ -84,6 +99,7 @@ color:#c2a14a;
 }
 
 /* HERO */
+
 .hero{
 height:80vh;
 background:url('studio1.jpeg') center/cover no-repeat;
@@ -93,6 +109,7 @@ justify-content:center;
 text-align:center;
 position:relative;
 padding:120px 20px;
+overflow:hidden;
 }
 
 .hero::after{
@@ -104,7 +121,7 @@ background:rgba(248,245,240,0.55);
 
 .hero-content{
 position:relative;
-z-index:2;
+z-index:3;
 max-width:800px;
 }
 
@@ -115,7 +132,80 @@ font-weight:400;
 letter-spacing:2px;
 }
 
+/* PETALS */
+
+.petals{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:2;
+overflow:hidden;
+}
+
+.petal{
+position:absolute;
+top:-40px;
+width:18px;
+height:18px;
+background:radial-gradient(circle,#f5cbd6,#e8a6b2);
+border-radius:60% 40% 60% 40%;
+opacity:.85;
+animation:fall linear forwards;
+}
+
+@keyframes fall{
+
+0%{
+transform:translateY(-50px) rotate(0deg);
+opacity:0;
+}
+
+10%{
+opacity:1;
+}
+
+100%{
+transform:translateY(110vh) rotate(360deg);
+opacity:.8;
+}
+
+}
+
+/* FLOATING LIGHT PARTICLES */
+
+.particles span{
+position:absolute;
+width:4px;
+height:4px;
+background:#ffffff;
+border-radius:50%;
+opacity:.6;
+animation:floatLight 6s linear infinite;
+}
+
+@keyframes floatLight{
+
+0%{
+transform:translateY(0);
+opacity:0;
+}
+
+50%{
+opacity:.8;
+}
+
+100%{
+transform:translateY(-200px);
+opacity:0;
+}
+
+}
+
 /* CONTENT */
+
 .section{
 padding:160px 10%;
 max-width:900px;
@@ -136,9 +226,15 @@ letter-spacing:1px;
 margin-bottom:32px;
 opacity:0.85;
 font-size:16px;
+transition:0.4s;
+}
+
+.section p:hover{
+opacity:1;
 }
 
 /* SIGNATURE */
+
 .signature{
 margin-top:70px;
 font-family:'Playfair Display',serif;
@@ -147,6 +243,7 @@ color:#c2a14a;
 }
 
 /* FOOTER */
+
 footer{
 background:#ece6da;
 padding:80px 10%;
@@ -156,6 +253,7 @@ letter-spacing:1px;
 }
 
 /* WHATSAPP */
+
 .whatsapp{
 position:fixed;
 bottom:40px;
@@ -175,6 +273,7 @@ background:#a88834;
 }
 
 /* MOBILE */
+
 @media(max-width:768px){
 
 header{
@@ -219,9 +318,14 @@ font-size:30px;
 </header>
 
 <section class="hero">
+
+<div class="petals" id="petals"></div>
+<div class="particles" id="particles"></div>
+
 <div class="hero-content">
 <h1>The Atelier</h1>
 </div>
+
 </section>
 
 <section class="section">
@@ -256,10 +360,57 @@ Charmaine — Founder, Bridal Vault
 
 <footer>
 <p>© 2026 Bridal Vault. All Rights Reserved.</p>
-  <p>Designed with elegance by Dimakatso's Professional Touch</p>
+<p>Designed with elegance by Dimakatso's Professional Touch</p>
 </footer>
 
 <a href="https://wa.me/27662243626" class="whatsapp">WhatsApp</a>
+
+<script>
+
+/* PETALS */
+
+const container=document.getElementById("petals");
+
+function createPetal(){
+
+const petal=document.createElement("div");
+petal.classList.add("petal");
+
+petal.style.left=Math.random()*100+"vw";
+petal.style.animationDuration=(Math.random()*4+4)+"s";
+
+container.appendChild(petal);
+
+setTimeout(()=>{
+petal.remove();
+},8000);
+
+}
+
+let petalInterval=setInterval(createPetal,300);
+
+setTimeout(()=>{
+clearInterval(petalInterval);
+},8000);
+
+
+/* PARTICLES */
+
+const particles=document.getElementById("particles");
+
+for(let i=0;i<25;i++){
+
+const dot=document.createElement("span");
+
+dot.style.left=Math.random()*100+"%";
+dot.style.top=Math.random()*100+"%";
+dot.style.animationDuration=(Math.random()*5+3)+"s";
+
+particles.appendChild(dot);
+
+}
+
+</script>
 
 </body>
 </html>
