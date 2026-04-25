@@ -1,14 +1,14 @@
-<!DOCTYPE html>   
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Bridal Vault | Custom Wedding Dresses</title>
+<title>Bridal Vault | Couture Bridal Atelier</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-<meta property="og:title" content="Bridal Vault | Custom Wedding Dresses">
-<meta property="og:description" content="Luxury bridal designs crafted with elegance and refinement.">
+<meta property="og:title" content="Bridal Vault | Couture Bridal Atelier">
+<meta property="og:description" content="Luxury bridal refinement, alterations and private couture fittings.">
 <meta property="og:image" content="https://bridal-vault.netlify.app/preview.png">
 <meta property="og:url" content="https://bridal-vault.netlify.app/">
 <meta property="og:type" content="website">
@@ -18,16 +18,17 @@
 
 <style>
 
-*{box-sizing:border-box;}
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
 
 body{
-margin:0;
 font-family:'Inter',sans-serif;
 background:#f8f5f0;
 color:#1c1c1c;
-line-height:1.8;
 overflow-x:hidden;
-position:relative;
 animation:pageFade 1.2s ease;
 }
 
@@ -46,11 +47,10 @@ left:50%;
 transform:translate(-50%,-50%);
 width:65vw;
 height:65vw;
-max-width:820px;
-max-height:820px;
+max-width:800px;
+max-height:800px;
 background:url('BV.jpeg') center/contain no-repeat;
-opacity:0.09;
-filter:grayscale(100%);
+opacity:0.06;
 pointer-events:none;
 z-index:0;
 }
@@ -96,7 +96,7 @@ color:#333;
 font-size:12px;
 letter-spacing:2px;
 text-transform:uppercase;
-transition:0.3s ease;
+transition:.3s;
 }
 
 nav a:hover{
@@ -106,43 +106,44 @@ color:#c2a14a;
 /* HERO */
 
 .hero{
-min-height:100svh;
-background:url('hero.png') center/cover no-repeat;
+min-height:100vh;
+position:relative;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
-position:relative;
-padding:120px 20px;
-z-index:1;
 overflow:hidden;
+}
+
+/* VIDEO STYLE HERO USING IMAGE + MOTION */
+
+.hero-bg{
+position:absolute;
+inset:0;
+background:url('hero.png') center/cover no-repeat;
+animation:slowZoom 18s ease-in-out infinite alternate;
+z-index:1;
+}
+
+@keyframes slowZoom{
+from{
+transform:scale(1);
+}
+to{
+transform:scale(1.08);
+}
 }
 
 .hero::after{
 content:"";
 position:absolute;
 inset:0;
-background:rgba(248,245,240,0.52);
-}
-
-.hero-content{
-position:relative;
-z-index:3;
-max-width:900px;
-}
-
-.hero h1{
-font-family:'Playfair Display',serif;
-font-size:clamp(36px,6vw,72px);
-font-weight:400;
-margin-bottom:25px;
-line-height:1.2;
-}
-
-.hero p{
-font-size:clamp(14px,2vw,18px);
-color:#444;
-margin-bottom:40px;
+background:linear-gradient(
+to bottom,
+rgba(248,245,240,0.25),
+rgba(248,245,240,0.55)
+);
+z-index:2;
 }
 
 /* PETALS */
@@ -154,7 +155,7 @@ left:0;
 width:100%;
 height:100%;
 pointer-events:none;
-z-index:2;
+z-index:3;
 overflow:hidden;
 }
 
@@ -170,24 +171,20 @@ animation:fall linear forwards;
 }
 
 @keyframes fall{
-
 0%{
 transform:translateY(-50px) rotate(0deg);
 opacity:0;
 }
-
 10%{
 opacity:1;
 }
-
 100%{
 transform:translateY(110vh) rotate(360deg);
 opacity:.8;
 }
-
 }
 
-/* PARTICLES */
+/* FLOATING LIGHT */
 
 .particles span{
 position:absolute;
@@ -197,158 +194,124 @@ background:#ffffff;
 border-radius:50%;
 opacity:.6;
 animation:floatLight 6s linear infinite;
+z-index:3;
 }
 
 @keyframes floatLight{
-
 0%{
 transform:translateY(0);
 opacity:0;
 }
-
 50%{
 opacity:.8;
 }
-
 100%{
 transform:translateY(-200px);
 opacity:0;
 }
-
 }
 
-/* BUTTON */
+/* HERO CONTENT */
+
+.hero-content{
+position:relative;
+z-index:5;
+max-width:900px;
+padding:0 20px;
+}
+
+.hero-subtitle{
+font-size:12px;
+letter-spacing:4px;
+text-transform:uppercase;
+margin-bottom:20px;
+color:#5a4a2d;
+}
+
+.hero h1{
+font-family:'Playfair Display',serif;
+font-size:clamp(42px,7vw,82px);
+font-weight:400;
+line-height:1.1;
+margin-bottom:25px;
+}
+
+.hero p{
+font-size:clamp(15px,2vw,18px);
+max-width:700px;
+margin:0 auto 40px;
+color:#444;
+line-height:1.8;
+}
 
 .button{
+display:inline-block;
 background:#c2a14a;
 color:white;
-padding:16px 45px;
-letter-spacing:2px;
-font-size:12px;
-text-transform:uppercase;
-border:none;
-cursor:pointer;
-transition:0.3s ease;
-display:inline-block;
+padding:18px 44px;
 text-decoration:none;
+font-size:12px;
+letter-spacing:2px;
+text-transform:uppercase;
+transition:.3s;
 }
 
 .button:hover{
 background:#a88834;
-transform:translateY(-3px);
-box-shadow:0 10px 25px rgba(0,0,0,0.08);
+transform:translateY(-2px);
 }
 
-/* SECTIONS */
+/* LUXURY SCROLL INDICATOR */
 
-.section{
-padding:160px 10%;
-text-align:center;
-position:relative;
-z-index:2;
-}
-
-.section h2{
-font-family:'Playfair Display',serif;
-font-size:clamp(30px,4vw,46px);
-margin-bottom:30px;
-font-weight:400;
-}
-
-.section p{
-max-width:720px;
-margin:0 auto;
-}
-
-/* GALLERY */
-
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:50px;
-margin-top:80px;
-}
-
-.gallery img{
-width:100%;
-height:520px;
-object-fit:cover;
-transition:0.6s ease;
-filter:brightness(1.05) contrast(1.05);
-}
-
-.gallery img:hover{
-transform:scale(1.03);
-}
-
-/* REVIEWS */
-
-.review-card{
-background:#ffffff;
-padding:70px;
-max-width:720px;
-margin:60px auto;
-box-shadow:0 25px 80px rgba(0,0,0,0.06);
-font-style:italic;
-}
-
-/* FOOTER */
-
-footer{
-background:#ece6da;
-padding:90px 10%;
-text-align:center;
-font-size:13px;
-letter-spacing:1px;
-}
-
-/* WHATSAPP */
-
-.whatsapp{
-position:fixed;
+.scroll-indicator{
+position:absolute;
 bottom:40px;
-right:40px;
-background:#c2a14a;
-color:white;
-padding:16px 28px;
-text-decoration:none;
-letter-spacing:1px;
-font-size:12px;
-transition:0.3s ease;
-z-index:9999;
-}
-
-.whatsapp:hover{
-background:#a88834;
+left:50%;
+transform:translateX(-50%);
+z-index:5;
+font-size:11px;
+letter-spacing:3px;
+text-transform:uppercase;
+color:#666;
 }
 
 /* MOBILE */
 
 @media(max-width:768px){
 
-header{padding:25px 6%;}
+header{
+padding:25px 6%;
+}
 
-.logo{letter-spacing:4px;font-size:15px;}
+.logo{
+font-size:15px;
+letter-spacing:4px;
+}
 
-nav{gap:15px;}
+nav{
+gap:15px;
+}
 
-nav a{font-size:10px;letter-spacing:1px;}
-
-.section{padding:100px 8%;}
-
-.gallery img{height:380px;}
-
-.hero{padding:100px 20px;}
-
-.hero h1{font-size:34px;}
-
-.hero p{font-size:14px;}
-
-.whatsapp{
-bottom:20px;
-right:20px;
-padding:12px 20px;
+nav a{
 font-size:10px;
+letter-spacing:1px;
+}
+
+.hero h1{
+font-size:38px;
+}
+
+.hero-subtitle{
+font-size:10px;
+letter-spacing:2px;
+}
+
+.hero p{
+font-size:14px;
+}
+
+.scroll-indicator{
+font-size:9px;
 }
 
 }
@@ -359,101 +322,66 @@ font-size:10px;
 <body>
 
 <header>
+
 <div class="logo">BRIDAL VAULT</div>
+
 <nav>
 <a href="about.html">About</a>
 <a href="gallery.html">Gallery</a>
-<a href="#reviews">Reviews</a>
 <a href="contact.html">Contact</a>
 <a href="booking.html">Book</a>
 </nav>
+
 </header>
 
 <section class="hero">
+
+<div class="hero-bg"></div>
 
 <div class="petals" id="petals"></div>
 <div class="particles" id="particles"></div>
 
 <div class="hero-content">
-<h1>Bespoke Bridal Couture</h1>
-<p>Designed for the woman who understands presence.</p>
-<a href="booking.html" class="button">Reserve Private Consultation</a>
+
+<div class="hero-subtitle">
+Private Bridal Atelier
+</div>
+
+<h1>
+Where Bridal Elegance<br>
+Becomes Personal
+</h1>
+
+<p>
+Luxury bridal alterations, couture refinement and private fittings
+designed to ensure your gown feels as extraordinary as the moment itself.
+</p>
+
+<a href="booking.html" class="button">
+Reserve Private Consultation
+</a>
+
+</div>
+
+<div class="scroll-indicator">
+Scroll to Discover
 </div>
 
 </section>
-
-<section class="section" id="about">
-<h2>About Bridal Vault</h2>
-<p>
-Bridal Vault is a private couture atelier dedicated to refined silhouettes and meticulous craftsmanship.
-Each gown is created with intention — sculpted, balanced and designed to command quiet attention.
-</p>
-</section>
-
-<section class="section" id="gallery">
-<h2>Our Creations</h2>
-<p style="max-width:650px;margin:0 auto;color:#555;">
-A study in silhouette, structure and detail.
-</p>
-
-<div class="gallery">
-<img src="dress1.jpeg">
-<img src="dress2.jpeg">
-<img src="dress3.jpeg">
-<img src="studio1.jpeg">
-<img src="detail1.jpeg">
-<img src="dress4.jpeg">
-</div>
-</section>
-
-<section class="section" id="reviews">
-<h2>Client Love</h2>
-<div class="review-card">
-<p>★★★★★</p>
-<p>
-From the first consultation to the final fitting, every detail was considered.
-The result was not just a gown — it was presence.
-</p>
-</div>
-<a href="https://www.google.com/search?q=bridal+vault+kempton+park" class="button">Leave a Google Review</a>
-</section>
-
-<section class="section" id="contact">
-<h2>Contact</h2>
-<p>066 224 3626</p>
-<p>bridalvault@gmail.com</p>
-<p>
-<a href="https://www.instagram.com/bridalvault/">Instagram</a> |
-<a href="https://www.facebook.com/BridalVault/">Facebook</a>
-</p>
-</section>
-
-<footer>
-<p>© 2026 Bridal Vault. All Rights Reserved.</p>
-<p>Designed with elegance by Dimakatso's Professional Touch</p>
-</footer>
-
-<a href="https://wa.me/27662243626" class="whatsapp">WhatsApp</a>
-
-<form name="contact" netlify hidden>
-<input type="text" name="name">
-<input type="email" name="email">
-<textarea name="message"></textarea>
-</form>
 
 <script>
 
 /* PETALS */
 
-const container=document.getElementById("petals");
+const container = document.getElementById("petals");
 
 function createPetal(){
 
-const petal=document.createElement("div");
+const petal = document.createElement("div");
 petal.classList.add("petal");
 
-petal.style.left=Math.random()*100+"vw";
-petal.style.animationDuration=(Math.random()*4+4)+"s";
+petal.style.left = Math.random()*100 + "vw";
+petal.style.animationDuration = (Math.random()*4 + 4) + "s";
 
 container.appendChild(petal);
 
@@ -463,24 +391,24 @@ petal.remove();
 
 }
 
-let petalInterval=setInterval(createPetal,300);
+let petalInterval = setInterval(createPetal,300);
 
 setTimeout(()=>{
 clearInterval(petalInterval);
 },8000);
 
 
-/* PARTICLES */
+/* LIGHT PARTICLES */
 
-const particles=document.getElementById("particles");
+const particles = document.querySelector(".particles");
 
 for(let i=0;i<25;i++){
 
-const dot=document.createElement("span");
+const dot = document.createElement("span");
 
-dot.style.left=Math.random()*100+"%";
-dot.style.top=Math.random()*100+"%";
-dot.style.animationDuration=(Math.random()*5+3)+"s";
+dot.style.left = Math.random()*100 + "%";
+dot.style.top = Math.random()*100 + "%";
+dot.style.animationDuration = (Math.random()*5 + 3) + "s";
 
 particles.appendChild(dot);
 
