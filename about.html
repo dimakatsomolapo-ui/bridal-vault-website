@@ -15,7 +15,11 @@
 
 <style>
 
-*{box-sizing:border-box;margin:0;padding:0;}
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
 
 body{
 font-family:'Inter',sans-serif;
@@ -58,22 +62,25 @@ position:absolute;
 top:0;
 left:0;
 width:100%;
-padding:35px 6%;
+padding:30px 6%;
 display:flex;
 justify-content:space-between;
 align-items:center;
-z-index:10;
+z-index:100;
+flex-wrap:wrap;
+gap:15px;
 }
 
 .logo{
 font-family:'Playfair Display',serif;
 font-size:18px;
-letter-spacing:8px;
+letter-spacing:6px;
 background:linear-gradient(90deg,#c2a14a,#fff3c9,#c2a14a);
 background-size:200%;
 -webkit-background-clip:text;
 color:transparent;
 animation:goldShimmer 6s linear infinite;
+white-space:nowrap;
 }
 
 @keyframes goldShimmer{
@@ -82,16 +89,20 @@ to{background-position:200% center;}
 
 nav{
 display:flex;
-gap:30px;
+gap:20px;
+flex-wrap:wrap;
+justify-content:flex-end;
+align-items:center;
 }
 
 nav a{
 text-decoration:none;
 color:#333;
-font-size:12px;
+font-size:11px;
 letter-spacing:2px;
 text-transform:uppercase;
 transition:0.3s ease;
+white-space:nowrap;
 }
 
 nav a:hover{
@@ -157,21 +168,17 @@ animation:fall linear forwards;
 }
 
 @keyframes fall{
-
 0%{
 transform:translateY(-50px) rotate(0deg);
 opacity:0;
 }
-
 10%{
 opacity:1;
 }
-
 100%{
 transform:translateY(110vh) rotate(360deg);
 opacity:.8;
 }
-
 }
 
 /* FLOATING LIGHT PARTICLES */
@@ -187,21 +194,17 @@ animation:floatLight 6s linear infinite;
 }
 
 @keyframes floatLight{
-
 0%{
 transform:translateY(0);
 opacity:0;
 }
-
 50%{
 opacity:.8;
 }
-
 100%{
 transform:translateY(-200px);
 opacity:0;
 }
-
 }
 
 /* CONTENT */
@@ -277,20 +280,36 @@ background:#a88834;
 @media(max-width:768px){
 
 header{
-padding:25px 6%;
+position:relative;
+padding:20px 5%;
+justify-content:center;
+text-align:center;
 }
 
 .logo{
+width:100%;
+font-size:16px;
 letter-spacing:4px;
-font-size:15px;
+margin-bottom:10px;
 }
 
 nav{
-gap:15px;
+width:100%;
+justify-content:center;
+gap:12px;
+}
+
+nav a{
+font-size:10px;
+letter-spacing:1px;
 }
 
 .hero{
 height:60vh;
+}
+
+.hero h1{
+font-size:36px;
 }
 
 .section{
@@ -299,6 +318,13 @@ padding:100px 8%;
 
 .section h2{
 font-size:30px;
+}
+
+.whatsapp{
+bottom:20px;
+right:20px;
+padding:12px 20px;
+font-size:10px;
 }
 
 }
@@ -310,11 +336,14 @@ font-size:30px;
 
 <header>
 <div class="logo">BRIDAL VAULT</div>
+
 <nav>
 <a href="index.html">Home</a>
-<a href="contact.html">About</a>
+<a href="about.html">About</a>
 <a href="booking.html">Book</a>
+<a href="contact.html">Contact</a>
 </nav>
+
 </header>
 
 <section class="hero">
@@ -369,15 +398,15 @@ Charmaine — Founder, Bridal Vault
 
 /* PETALS */
 
-const container=document.getElementById("petals");
+const container = document.getElementById("petals");
 
 function createPetal(){
 
-const petal=document.createElement("div");
+const petal = document.createElement("div");
 petal.classList.add("petal");
 
-petal.style.left=Math.random()*100+"vw";
-petal.style.animationDuration=(Math.random()*4+4)+"s";
+petal.style.left = Math.random()*100 + "vw";
+petal.style.animationDuration = (Math.random()*4+4) + "s";
 
 container.appendChild(petal);
 
@@ -387,24 +416,23 @@ petal.remove();
 
 }
 
-let petalInterval=setInterval(createPetal,300);
+let petalInterval = setInterval(createPetal,300);
 
 setTimeout(()=>{
 clearInterval(petalInterval);
 },8000);
 
-
 /* PARTICLES */
 
-const particles=document.getElementById("particles");
+const particles = document.getElementById("particles");
 
 for(let i=0;i<25;i++){
 
-const dot=document.createElement("span");
+const dot = document.createElement("span");
 
-dot.style.left=Math.random()*100+"%";
-dot.style.top=Math.random()*100+"%";
-dot.style.animationDuration=(Math.random()*5+3)+"s";
+dot.style.left = Math.random()*100 + "%";
+dot.style.top = Math.random()*100 + "%";
+dot.style.animationDuration = (Math.random()*5+3) + "s";
 
 particles.appendChild(dot);
 
